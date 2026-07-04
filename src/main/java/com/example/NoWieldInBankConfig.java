@@ -26,4 +26,14 @@ public interface NoWieldInBankConfig extends Config
     {
         return true;
     }
+
+    @ConfigItem(
+            keyName = "hideDrink",
+            name = "Hide Drink option",
+            description = "Removes the Drink option (used for potions) while the bank is open"
+    )
+    default boolean hideDrink()
+    {
+        return true;
+    }
 }
