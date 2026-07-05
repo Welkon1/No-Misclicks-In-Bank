@@ -14,8 +14,8 @@ import net.runelite.client.plugins.PluginDescriptor;
 
 @PluginDescriptor(
         name = "No Misclicks In Bank",
-        description = "Removes the Wield, Wear, and/or Drink options from items in your inventory while the bank is open, to prevent accidental clicks when depositing all",
-        tags = {"bank", "misclick", "wield", "wear", "drink", "equip", "menu", "qol"}
+        description = "Removes the Wield, Wear, Drink, and/or Eat options from items in your inventory while the bank is open, to prevent accidental clicks when depositing all",
+        tags = {"bank", "misclick", "wield", "wear", "drink", "eat", "food", "equip", "menu", "qol"}
 )
 public class NoWieldInBankPlugin extends Plugin
 {
@@ -53,11 +53,13 @@ public class NoWieldInBankPlugin extends Plugin
         // "Wield" covers weapons, shields, and ammo (e.g. arrows).
         // "Wear" covers armor and other wearable equipment.
         // "Drink" covers potions.
+        // "Eat" covers food.
         // Each is independently toggleable via the plugin's config panel.
         boolean shouldRemove =
                 (config.hideWield() && lowerOption.startsWith("wield"))
                         || (config.hideWear() && lowerOption.startsWith("wear"))
-                        || (config.hideDrink() && lowerOption.startsWith("drink"));
+                        || (config.hideDrink() && lowerOption.startsWith("drink"))
+                        || (config.hideEat() && lowerOption.startsWith("eat"));
 
         if (!shouldRemove)
         {

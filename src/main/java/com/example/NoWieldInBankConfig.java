@@ -36,4 +36,14 @@ public interface NoWieldInBankConfig extends Config
     {
         return true;
     }
+
+    @ConfigItem(
+            keyName = "hideEat",
+            name = "Hide Eat option",
+            description = "Removes the Eat option (used for food) while the bank is open"
+    )
+    default boolean hideEat()
+    {
+        return true;
+    }
 }
